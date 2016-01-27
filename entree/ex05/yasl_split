@@ -1,0 +1,27 @@
+#!yasl
+
+{
+	"Parse error\nUsage [char] [arg]\n"
+	print
+	#
+	exit
+} error
+
+{
+	# %? #(0:=:0 1:=:0 == ? 
+	(4:=:4 0:4 4:== ? (0:=:3 ! 1:4) : (!)) : (0:=:3 ! 0:4))
+} rev
+
+{
+	3:#:0 %? #(3:=:3 1:=:3 3:== ? (3:! "\n" print) : (3:print) )
+	"\n" print # exit
+} print_final
+
+{
+	3:#:0 ? (3:=:3 1:=:3 3:== ? (3:!))
+} kill_c
+
+2 #!
+1:4
+# 2 == ? (][ 1:0 == ? (0:=:1 ! ][ 0:=:2 ! rev kill_c print_final) : (error))
+error

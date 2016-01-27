@@ -1,0 +1,31 @@
+#!yasl
+
+{
+	"Parse error\nUsage [nb] ( entre 0 et 20 )\n"
+	print
+	#
+	exit
+} error
+
+{
+	2:=:3 20:2 2:>:2 1:2 2:== ? (error) : 3:=:2
+	2:=:3 0:2 2:<:2 1:2 2:== ? (error) : 3:=:2
+	2:=:3 2:2 2:<:2 1:2 2:== ? (1:0 print "\n" print # exit) : 3:=:2
+} ft_parse
+
+{
+	2:=:1
+	1:1
+	1:-:1
+}ft_prep
+
+{
+	1:=:1
+	0:1
+	1:> ?(1:=:0 2:=:0 *:2 2:= 1:1 1:-:1 ft_recurs)
+} ft_recurs
+
+2 #!
+
+# 1 == ? (0:eval:2 ft_parse ft_prep ft_recurs print "\n" print # exit)
+error
